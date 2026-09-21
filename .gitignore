@@ -1,0 +1,15 @@
+# Local build output from student/comsee_tool.py and student/comsee_docker.py.
+/build/
+
+# Packaged submissions.
+*.zip
+
+# Your own work. Ignored by default so that a public fork, issue, or pull
+# request cannot leak solutions, which the rules forbid. To version your work
+# privately, use a private repository and remove the two lines below.
+/solutions/
+/common/
+
+__pycache__/
+*.py[cod]
+.DS_Store

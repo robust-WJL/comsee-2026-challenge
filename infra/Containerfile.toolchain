@@ -1,0 +1,38 @@
+FROM debian:13-slim@sha256:7792b1f7702a86946cd518db72b6a407302c3e9bc1635634368b878189e8221c
+
+# Versions come from infra/toolchain-lock.json and the immutable snapshot used to
+# create the pinned base image. Empty build arguments deliberately fail closed.
+ARG DEBIAN_SNAPSHOT
+ARG GCC14_PACKAGE_VERSION
+ARG LIBC_DEV_PACKAGE_VERSION
+ARG BINUTILS_PACKAGE_VERSION
+ARG PYTHON3_PACKAGE_VERSION
+RUN test -n "$DEBIAN_SNAPSHOT" \
+ && test -n "$GCC14_PACKAGE_VERSION" \
+ && test -n "$LIBC_DEV_PACKAGE_VERSION" \
+ && test -n "$BINUTILS_PACKAGE_VERSION" \
+ && test -n "$PYTHON3_PACKAGE_VERSION" \
+ && sed -i \
+      -e "s|http://deb.debian.org/debian-security|http://snapshot.debian.org/archive/debian-security/${DEBIAN_SNAPSHOT}|" \
+      -e "s|http://deb.debian.org/debian|http://snapshot.debian.org/archive/debian/${DEBIAN_SNAPSHOT}|" \
+      -e '/^Signed-By:/a Check-Valid-Until: no' \
+      /etc/apt/sources.list.d/debian.sources \
+ && apt-get -o Acquire::Retries=3 update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      gcc-14="$GCC14_PACKAGE_VERSION" \
+      libc6-dev="$LIBC_DEV_PACKAGE_VERSION" \
+      binutils="$BINUTILS_PACKAGE_VERSION" \
+      python3="$PYTHON3_PACKAGE_VERSION" \
+ && rm -rf /var/lib/apt/lists/*
+
+LABEL org.opencontainers.image.title="ComSee trusted development toolchain" \
+      org.opencontainers.image.base.digest="sha256:7792b1f7702a86946cd518db72b6a407302c3e9bc1635634368b878189e8221c" \
+      org.comsee.debian.snapshot="$DEBIAN_SNAPSHOT" \
+      org.comsee.toolchain.gcc14="$GCC14_PACKAGE_VERSION" \
+      org.comsee.toolchain.libc6-dev="$LIBC_DEV_PACKAGE_VERSION" \
+      org.comsee.toolchain.binutils="$BINUTILS_PACKAGE_VERSION" \
+      org.comsee.toolchain.python3="$PYTHON3_PACKAGE_VERSION"
+
+RUN useradd --create-home --uid 10001 builder
+USER builder
+WORKDIR /work

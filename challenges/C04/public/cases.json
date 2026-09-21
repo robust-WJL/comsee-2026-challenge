@@ -1,0 +1,7 @@
+[
+ {"name":"example","request":{"path":"src//lib/./../main.c"},"expected":{"status":"OK","result":{"path":"src/main.c"}}},
+ {"name":"relative-parents","request":{"path":"../../src/../test"},"expected":{"status":"OK","result":{"path":"../../test"}}},
+ {"name":"absolute-clamp","request":{"path":"/a/../../b"},"expected":{"status":"OK","result":{"path":"/b"}}},
+ {"name":"cancelled","request":{"path":"a/.."},"expected":{"status":"OK","result":{"path":"."}}},
+ {"name":"dots-and-spaces","request":{"path":"a/.../x y/"},"expected":{"status":"OK","result":{"path":"a/.../x y"}}}
+]

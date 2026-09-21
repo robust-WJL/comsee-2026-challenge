@@ -1,0 +1,58 @@
+[
+  {
+    "name": "empty",
+    "request": {
+      "input": ""
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "output": ""
+      }
+    }
+  },
+  {
+    "name": "sample",
+    "request": {
+      "input": "014142820200"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "output": "41424142414241"
+      }
+    }
+  },
+  {
+    "name": "overlap",
+    "request": {
+      "input": "0041840100"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "output": "4141414141414141"
+      }
+    }
+  },
+  {
+    "name": "literal-truncated",
+    "request": {
+      "input": "026162"
+    },
+    "expected": {
+      "status": "TRUNCATED",
+      "result": null
+    }
+  },
+  {
+    "name": "zero-distance",
+    "request": {
+      "input": "0041800000"
+    },
+    "expected": {
+      "status": "DISTANCE",
+      "result": null
+    }
+  }
+]

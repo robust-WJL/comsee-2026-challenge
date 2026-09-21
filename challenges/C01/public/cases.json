@@ -1,0 +1,7 @@
+[
+  {"name":"sample","request":{"input":"feff0321"},"expected":{"status":"OK","result":{"version":2,"kind":1,"flags":3,"measurement":-2}}},
+  {"name":"zero","request":{"input":"00000000"},"expected":{"status":"OK","result":{"version":0,"kind":0,"flags":0,"measurement":0}}},
+  {"name":"positive-boundary","request":{"input":"ff7f00a5"},"expected":{"status":"OK","result":{"version":10,"kind":5,"flags":0,"measurement":32767}}},
+  {"name":"negative-boundary","request":{"input":"0080ff5a"},"expected":{"status":"OK","result":{"version":5,"kind":10,"flags":255,"measurement":-32768}}},
+  {"name":"wrong-length","request":{"input":"000000"},"expected":{"status":"INPUT_LENGTH","result":null}}
+]

@@ -1,0 +1,7 @@
+[
+ {"name":"example","request":{"input":"4141414242"},"expected":{"status":"OK","result":{"encoded":"03410242"}}},
+ {"name":"empty","request":{"input":""},"expected":{"status":"OK","result":{"encoded":""}}},
+ {"name":"zeros","request":{"input":"000000"},"expected":{"status":"OK","result":{"encoded":"0300"}}},
+ {"name":"run10","request":{"input":"61616161616161616161"},"expected":{"status":"OK","result":{"encoded":"0a61"}}},
+ {"name":"alternating","request":{"input":"00010001"},"expected":{"status":"OK","result":{"encoded":"0100010101000101"}}}
+]

@@ -1,0 +1,235 @@
+[
+  {
+    "name": "empty",
+    "request": {
+      "sets": 1,
+      "ways": 1,
+      "block_size": 4,
+      "addresses": []
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "accesses": [],
+        "hits": 0,
+        "misses": 0,
+        "evictions": 0
+      }
+    }
+  },
+  {
+    "name": "sample",
+    "request": {
+      "sets": 1,
+      "ways": 2,
+      "block_size": 4,
+      "addresses": [
+        0,
+        4,
+        0,
+        8,
+        4
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "accesses": [
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "HIT"
+          },
+          {
+            "status": "MISS",
+            "evicted": 4
+          },
+          {
+            "status": "MISS",
+            "evicted": 0
+          }
+        ],
+        "hits": 1,
+        "misses": 4,
+        "evictions": 2
+      }
+    }
+  },
+  {
+    "name": "same-block",
+    "request": {
+      "sets": 2,
+      "ways": 1,
+      "block_size": 16,
+      "addresses": [
+        0,
+        15,
+        16,
+        31,
+        0
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "accesses": [
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "HIT"
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "HIT"
+          },
+          {
+            "status": "HIT"
+          }
+        ],
+        "hits": 3,
+        "misses": 2,
+        "evictions": 0
+      }
+    }
+  },
+  {
+    "name": "true-lru",
+    "request": {
+      "sets": 1,
+      "ways": 3,
+      "block_size": 4,
+      "addresses": [
+        0,
+        4,
+        8,
+        0,
+        12,
+        4
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "accesses": [
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "HIT"
+          },
+          {
+            "status": "MISS",
+            "evicted": 4
+          },
+          {
+            "status": "MISS",
+            "evicted": 8
+          }
+        ],
+        "hits": 1,
+        "misses": 5,
+        "evictions": 2
+      }
+    }
+  },
+  {
+    "name": "sets",
+    "request": {
+      "sets": 4,
+      "ways": 1,
+      "block_size": 4,
+      "addresses": [
+        0,
+        4,
+        8,
+        12,
+        16,
+        4
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "accesses": [
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": null
+          },
+          {
+            "status": "MISS",
+            "evicted": 0
+          },
+          {
+            "status": "HIT"
+          }
+        ],
+        "hits": 1,
+        "misses": 5,
+        "evictions": 1
+      }
+    }
+  },
+  {
+    "name": "invalid-config",
+    "request": {
+      "sets": 3,
+      "ways": 1,
+      "block_size": 4,
+      "addresses": []
+    },
+    "expected": {
+      "status": "INVALID_CONFIG",
+      "result": null
+    }
+  },
+  {
+    "name": "invalid-address",
+    "request": {
+      "sets": 1,
+      "ways": 1,
+      "block_size": 4,
+      "addresses": [
+        0,
+        -1
+      ]
+    },
+    "expected": {
+      "status": "INVALID_ADDRESS",
+      "result": {
+        "index": 1
+      }
+    }
+  }
+]

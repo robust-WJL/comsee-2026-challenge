@@ -1,0 +1,84 @@
+[
+  {
+    "name": "sample",
+    "request": {
+      "expression": "max(3 * (x - 2), 10)",
+      "variables": [
+        {
+          "name": "x",
+          "value": 7
+        }
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "value": 15
+      }
+    }
+  },
+  {
+    "name": "left-associative",
+    "request": {
+      "expression": "1-2-3",
+      "variables": []
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "value": -4
+      }
+    }
+  },
+  {
+    "name": "negative-remainder",
+    "request": {
+      "expression": "-7 % 3",
+      "variables": []
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "value": -1
+      }
+    }
+  },
+  {
+    "name": "unknown-variable",
+    "request": {
+      "expression": "x+1",
+      "variables": []
+    },
+    "expected": {
+      "status": "UNKNOWN_VARIABLE",
+      "result": null
+    }
+  },
+  {
+    "name": "syntax-before-evaluation",
+    "request": {
+      "expression": "unknown + )",
+      "variables": []
+    },
+    "expected": {
+      "status": "SYNTAX",
+      "result": null
+    }
+  },
+  {
+    "name": "checked-overflow",
+    "request": {
+      "expression": "x+1",
+      "variables": [
+        {
+          "name": "x",
+          "value": 9223372036854775807
+        }
+      ]
+    },
+    "expected": {
+      "status": "OVERFLOW",
+      "result": null
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "image_tag": "comsee-toolchain:debian13-amd64",
+  "base_image": "debian:13-slim@sha256:7792b1f7702a86946cd518db72b6a407302c3e9bc1635634368b878189e8221c",
+  "platform": "linux/amd64",
+  "debian_snapshot": "20260918T000000Z",
+  "packages": {
+    "gcc-14": "14.2.0-19",
+    "libc6-dev": "2.41-12+deb13u4",
+    "binutils": "2.44-3",
+    "python3": "3.13.5-1"
+  }
+}

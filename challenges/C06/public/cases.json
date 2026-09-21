@@ -1,0 +1,112 @@
+[
+  {
+    "name": "empty",
+    "request": {
+      "input": ""
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "rows": []
+      }
+    }
+  },
+  {
+    "name": "blank",
+    "request": {
+      "input": "0a"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "rows": [
+          [
+            ""
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "name": "sample",
+    "request": {
+      "input": "372c2268656c6c6f2c20776f726c64222c226122226222"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "rows": [
+          [
+            "7",
+            "hello, world",
+            "a\"b"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "name": "quoted-newline",
+    "request": {
+      "input": "22610a62222c630d0a"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "rows": [
+          [
+            "a\nb",
+            "c"
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "name": "trailing-comma",
+    "request": {
+      "input": "612c"
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "rows": [
+          [
+            "a",
+            ""
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "name": "bare-cr",
+    "request": {
+      "input": "610d62"
+    },
+    "expected": {
+      "status": "BARE_CR",
+      "result": null
+    }
+  },
+  {
+    "name": "unexpected-quote",
+    "request": {
+      "input": "612262"
+    },
+    "expected": {
+      "status": "UNEXPECTED_QUOTE",
+      "result": null
+    }
+  },
+  {
+    "name": "unterminated",
+    "request": {
+      "input": "2261"
+    },
+    "expected": {
+      "status": "UNTERMINATED_QUOTE",
+      "result": null
+    }
+  }
+]

@@ -1,0 +1,38 @@
+<!-- Generated from the private challenge catalogue; do not edit. -->
+# C12 — Tiny bytecode interpreter
+
+Implement this C entry point:
+
+```c
+int solve(const uint8_t *input, size_t input_len,
+          uint8_t *output, size_t output_cap, size_t *output_len);
+```
+
+Each buffer contains one UTF-8 JSON document without a terminating NUL. Input is
+immutable, buffers do not overlap, and a failed call publishes no partial output.
+Return `0` for a complete response, including domain errors; `1` when the output
+buffer is too small and set `*output_len` to the exact required size; `2` for
+malformed transport; and `3` for internal failure. The JSONL wrapper accepts one
+request per line and emits one response per line. Each graded case starts a fresh
+process.
+
+Requests must match the stated schema exactly. Reject malformed JSON, duplicate or
+unknown keys, missing fields, wrong types, malformed hex, and booleans used as
+integers as transport errors. Integers are exact mathematical integers. Hex byte
+strings have two unspaced digits per byte, accept either letter case, and are emitted
+in lowercase. The shared JSONL limit is 1 MiB with at most 64 nested containers.
+
+Responses use `{"status":"...","result":...}`. Comparisons ignore JSON object
+order and whitespace but preserve array order, bytes, and exact integer values.
+
+The request is `{"code":"<hex>","locals":[<u32>,...<u32>]?}`. `code` is
+required and limited to 2,048 decoded bytes. `locals` defaults to sixteen zeros;
+when present it contains exactly sixteen unsigned 32-bit integers. Execution starts
+with an empty stack, whose limit is 64 words, and has a 10,000-instruction budget.
+
+Domain statuses are `CODE_TOO_LONG`, `INVALID_OPCODE`, `TRUNCATED_OPERAND`,
+`LOCAL_INDEX`, `JUMP_TARGET`, `PC_OOB`, `STACK_UNDERFLOW`, `STACK_OVERFLOW`, and
+`BUDGET_EXHAUSTED`. Decode errors include `error_offset`, the failing instruction's
+byte offset. Every domain outcome returns
+`{"status":"<status>","result":{"stack":[...],"locals":[16 words],"instructions":N}}`.
+Stack order is bottom to top. Values are emitted as unsigned decimal integers.

@@ -1,0 +1,1454 @@
+[
+  {
+    "name": "empty-queue",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [],
+      "actions": [
+        "HOLD"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": null,
+            "hold": null,
+            "queue_index": 0,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "FINISHED"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "wait-soft-drop",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "O"
+      ],
+      "actions": [
+        "WAIT",
+        "SOFT_DROP"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 1,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 2
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "hard-drop-spawn",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "O",
+        "I"
+      ],
+      "actions": [
+        "HARD_DROP"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              48,
+              48
+            ],
+            "active": {
+              "piece": "I",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 2,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "single-line-clear",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        975
+      ],
+      "queue": [
+        "O"
+      ],
+      "actions": [
+        "HARD_DROP"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              975
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              48
+            ],
+            "active": null,
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 1,
+            "score": 100,
+            "status": "FINISHED"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "spawn-collision",
+    "request": {
+      "board": [
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "O"
+      ],
+      "actions": []
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": null,
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "GAME_OVER"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "invalid-board",
+    "request": {
+      "board": [
+        1023,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [],
+      "actions": []
+    },
+    "expected": {
+      "status": "INVALID_BOARD",
+      "result": null
+    }
+  },
+  {
+    "name": "grounded-lock",
+    "request": {
+      "board": [
+        0,
+        0,
+        16,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "O"
+      ],
+      "actions": [
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 2,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 1,
+            "grounded": 1,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              48,
+              48,
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": null,
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "GAME_OVER"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "rotation-kick-left",
+    "request": {
+      "board": [
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "T"
+      ],
+      "actions": [
+        "ROTATE_CW"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              32,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              32,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 1,
+              "x": 2,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 1,
+            "grounded": 1,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "counterclockwise",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "J"
+      ],
+      "actions": [
+        "ROTATE_CCW"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "J",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "J",
+              "orientation": 3,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 1,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "hold-and-swap",
+    "request": {
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "T",
+        "I",
+        "O"
+      ],
+      "actions": [
+        "HOLD",
+        "HOLD",
+        "HARD_DROP",
+        "HOLD"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "I",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": "T",
+            "queue_index": 2,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "I",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": "T",
+            "queue_index": 2,
+            "gravity": 1,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              120
+            ],
+            "active": {
+              "piece": "O",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": "T",
+            "queue_index": 3,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              120
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": "O",
+            "queue_index": 3,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "hold-spawn-collision",
+    "request": {
+      "board": [
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "T",
+        "O"
+      ],
+      "actions": [
+        "HOLD"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              32,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              32,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": null,
+            "hold": "T",
+            "queue_index": 2,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "GAME_OVER"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "rejected-rotation",
+    "request": {
+      "board": [
+        0,
+        0,
+        248,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "queue": [
+        "T"
+      ],
+      "actions": [
+        "ROTATE_CW"
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "states": [
+          {
+            "board": [
+              0,
+              0,
+              248,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 0,
+            "grounded": 0,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          },
+          {
+            "board": [
+              0,
+              0,
+              248,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "active": {
+              "piece": "T",
+              "orientation": 0,
+              "x": 3,
+              "y": 0
+            },
+            "hold": null,
+            "queue_index": 1,
+            "gravity": 1,
+            "grounded": 1,
+            "lines": 0,
+            "score": 0,
+            "status": "RUNNING"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,231 @@
+[
+  {
+    "name": "empty",
+    "request": {
+      "operations": [
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "feeds": [],
+        "state": {
+          "timestamp": 0,
+          "dictionary": []
+        }
+      }
+    }
+  },
+  {
+    "name": "example",
+    "request": {
+      "operations": [
+        {
+          "op": "FEED",
+          "data": "c57a0100002a01000d000774656d706572617475726502000a0000006400070000001502000a0000000500070000001625ebffea"
+        },
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "feeds": [
+          {
+            "events": [
+              {
+                "timestamp": 100,
+                "name": "temperature",
+                "value": 21
+              },
+              {
+                "timestamp": 105,
+                "name": "temperature",
+                "value": 22
+              }
+            ]
+          }
+        ],
+        "state": {
+          "timestamp": 105,
+          "dictionary": [
+            {
+              "id": 7,
+              "name": "temperature"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "fragmented",
+    "request": {
+      "operations": [
+        {
+          "op": "FEED",
+          "data": "c57a010000"
+        },
+        {
+          "op": "FEED",
+          "data": "2a01000d0007"
+        },
+        {
+          "op": "FEED",
+          "data": "74656d706572617475726502000a0000006400070000001502000a0000000500070000001625ebffea"
+        },
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "feeds": [
+          {
+            "events": []
+          },
+          {
+            "events": []
+          },
+          {
+            "events": [
+              {
+                "timestamp": 100,
+                "name": "temperature",
+                "value": 21
+              },
+              {
+                "timestamp": 105,
+                "name": "temperature",
+                "value": 22
+              }
+            ]
+          }
+        ],
+        "state": {
+          "timestamp": 105,
+          "dictionary": [
+            {
+              "id": 7,
+              "name": "temperature"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "compressed",
+    "request": {
+      "operations": [
+        {
+          "op": "FEED",
+          "data": "c57a010100141201000300017802000a000000020001fffffffd8e4c1b2d"
+        },
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "OK",
+      "result": {
+        "feeds": [
+          {
+            "events": [
+              {
+                "timestamp": 2,
+                "name": "x",
+                "value": -3
+              }
+            ]
+          }
+        ],
+        "state": {
+          "timestamp": 2,
+          "dictionary": [
+            {
+              "id": 1,
+              "name": "x"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "atomic-error",
+    "request": {
+      "operations": [
+        {
+          "op": "FEED",
+          "data": "c57a0100000901000600016b657074ea5410e8"
+        },
+        {
+          "op": "FEED",
+          "data": "c57a0100001003000002000a0000000100010000000223eceec8"
+        },
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "UNKNOWN_ID",
+      "result": {
+        "feeds": [
+          {
+            "events": []
+          },
+          {
+            "events": []
+          }
+        ],
+        "state": {
+          "timestamp": 0,
+          "dictionary": [
+            {
+              "id": 1,
+              "name": "kept"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "name": "truncated",
+    "request": {
+      "operations": [
+        {
+          "op": "FEED",
+          "data": "c57a0100002a01000d000774656d706572617475726502000a0000006400070000001502000a0000000500070000001625ebff"
+        },
+        {
+          "op": "END"
+        }
+      ]
+    },
+    "expected": {
+      "status": "TRUNCATED",
+      "result": {
+        "feeds": [
+          {
+            "events": []
+          }
+        ],
+        "state": {
+          "timestamp": 0,
+          "dictionary": []
+        }
+      }
+    }
+  }
+]

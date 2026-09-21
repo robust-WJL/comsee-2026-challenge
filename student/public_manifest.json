@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "tool_version": "0.1.0-dev",
+  "target": {
+    "os": "debian-13",
+    "arch": "x86_64",
+    "compiler": "gcc-14",
+    "c_standard": "c17"
+  },
+  "limits": {
+    "compile_wall_seconds": 60,
+    "case_wall_seconds": 5,
+    "stdout_bytes": 4194304,
+    "stderr_bytes": 65536
+  },
+  "challenges": [
+    {
+      "id": "C01",
+      "tier": "EASY",
+      "points": 100,
+      "optimization": "-O1",
+      "coverage": "complete"
+    },
+    {
+      "id": "C02",
+      "tier": "EASY",
+      "points": 100,
+      "optimization": "-O1",
+      "coverage": "complete"
+    },
+    {
+      "id": "C03",
+      "tier": "EASY",
+      "points": 100,
+      "optimization": "-O1",
+      "coverage": "complete"
+    },
+    {
+      "id": "C04",
+      "tier": "MEDIUM",
+      "points": 200,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C05",
+      "tier": "MEDIUM",
+      "points": 200,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C06",
+      "tier": "MEDIUM",
+      "points": 200,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C07",
+      "tier": "MEDIUM",
+      "points": 200,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C08",
+      "tier": "HARD",
+      "points": 400,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C09",
+      "tier": "HARD",
+      "points": 400,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C10",
+      "tier": "HARD",
+      "points": 400,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C11",
+      "tier": "HARD",
+      "points": 400,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C12",
+      "tier": "EXPERT",
+      "points": 600,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C13",
+      "tier": "EXPERT",
+      "points": 600,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C14",
+      "tier": "EXPERT",
+      "points": 600,
+      "optimization": "-O2",
+      "coverage": "complete"
+    },
+    {
+      "id": "C15",
+      "tier": "BOSS",
+      "points": 1000,
+      "optimization": "-O2",
+      "coverage": "complete",
+      "milestones": [
+        300,
+        300,
+        400
+      ]
+    },
+    {
+      "id": "C16",
+      "tier": "BOSS",
+      "points": 1000,
+      "optimization": "-O2",
+      "coverage": "complete",
+      "milestones": [
+        300,
+        300,
+        400
+      ]
+    },
+    {
+      "id": "C17",
+      "tier": "BOSS",
+      "points": 1000,
+      "optimization": "-O2",
+      "coverage": "complete",
+      "milestones": [
+        300,
+        300,
+        400
+      ]
+    }
+  ]
+}

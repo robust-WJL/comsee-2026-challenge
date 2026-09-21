@@ -1,0 +1,12 @@
+[
+  {"name":"halt","request":{"code":"00"},"expected":{"status":"OK","result":{"stack":[],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":1}}},
+  {"name":"wrap-add","request":{"code":"01ffffffff01010000000200"},"expected":{"status":"OK","result":{"stack":[0],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":4}}},
+  {"name":"operand-order","request":{"code":"0107000000010a0000000300"},"expected":{"status":"OK","result":{"stack":[4294967293],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":4}}},
+  {"name":"store-load","request":{"code":"01efbeadde0703060300"},"expected":{"status":"OK","result":{"stack":[3735928559],"locals":[0,0,0,3735928559,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":4}}},
+  {"name":"supplied-locals","request":{"code":"060f00","locals":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]},"expected":{"status":"OK","result":{"stack":[15],"locals":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],"instructions":2}}},
+  {"name":"branch-taken","request":{"code":"0100000000090d00010100000000"},"expected":{"status":"OK","result":{"stack":[],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":3}}},
+  {"name":"branch-untaken","request":{"code":"0105000000090d00010100000000"},"expected":{"status":"OK","result":{"stack":[1],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":4}}},
+  {"name":"underflow","request":{"code":"01090000000200"},"expected":{"status":"STACK_UNDERFLOW","result":{"stack":[9],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":1}}},
+  {"name":"invalid-target","request":{"code":"08020000"},"expected":{"status":"JUMP_TARGET","result":{"stack":[],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":0,"error_offset":0}}},
+  {"name":"budget-loop","request":{"code":"080000"},"expected":{"status":"BUDGET_EXHAUSTED","result":{"stack":[],"locals":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"instructions":10000}}}
+]
