@@ -8,6 +8,7 @@ test it locally, and submit your source code as a ZIP. Grading happens privately
 after the deadline.
 
 | | |
+| ---- | -------- |
 | **Deadline** | **2026-09-29 00:00 KST (UTC+09:00)** |
 | **Submit** | [Submission form](https://forms.gle/v8NCbYbLSU1UW5CD8) |
 | **Support** | [woojin@friendli.ai](mailto:woojin@friendli.ai) |
